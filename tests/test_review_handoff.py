@@ -58,6 +58,18 @@ class HandoffTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             parse_review_response(response, "demo-1")
 
+    def test_invalid_json_rejected(self):
+        with self.assertRaises(ValueError):
+            parse_review_response("{not-json", "demo-1")
 
+    def test_non_string_finding_rejected(self):
+        response = json.dumps({
+            "task_id": "demo-1",
+            "verdict": "approve",
+            "findings": [123],
+        })
+        with self.assertRaises(ValueError):
+            parse_review_response(response, "demo-1")
+            
 if __name__ == "__main__":
     unittest.main()
