@@ -1,0 +1,8 @@
+{
+  "task_id": "offline-git-demo",
+  "pr": 4,
+  "sha": "a2bfa4d585b0b43cbdae092238d24914bea9f8dccb2206b5fb2843f222e94677",
+  "round": 0,
+  "verdict": "PASS または FAIL",
+  "findings": []
+}
