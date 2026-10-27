@@ -1,0 +1,36 @@
+name: Grok one-shot connectivity check
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Check xAI API once (no response body logged)
+        env:
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "${XAI_API_KEY:-}" ]]; then
+            echo "Missing XAI_API_KEY repository secret"
+            exit 1
+          fi
+          echo "::add-mask::$XAI_API_KEY"
+          payload='{"model":"grok-4-fast-non-reasoning","messages":[{"role":"user","content":"Reply OK."}],"max_tokens":2,"stream":false}'
+          status=$(curl --silent --show-error --max-time 30 --retry 0 \
+            --output /dev/null --write-out '%{http_code}' \
+            --header "Authorization: Bearer $XAI_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data "$payload" \
+            https://api.x.ai/v1/chat/completions)
+          if [[ "$status" == "200" ]]; then
+            echo "xAI API connectivity: HTTP 200"
+          else
+            echo "xAI API connectivity failed (HTTP $status); response suppressed"
+            exit 1
+          fi
