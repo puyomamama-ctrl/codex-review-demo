@@ -1,4 +1,7 @@
 {
   "tasks/grok-clamp-001/project/clamp.py": "03aca5e97712d7b85aee9b6b916fb9c251090c869b5309e5294ea1fe0a1f95a1",
-  "tasks/grok-clamp-001/project/test_clamp.py": "b4ed8b2e46e96c657ee5d4657e734564e92c6336fc1e8634546ee37049e3fc77"
+  "tasks/grok-clamp-001/project/test_clamp.py": "b4ed8b2e46e96c657ee5d4657e734564e92c6336fc1e8634546ee37049e3fc77",
+  "tasks/grok-clamp-001/reports/status-ja.txt": "80b08a49c3eb5931d8b8f1f0cbbc98882be01e67afedfbfab27e2de6c2540d5e",
+  "tasks/grok-clamp-001/requests/round-0.md": "66b9f8f6eb29784449e1518da05538832aaf60ac19c723e3d01509fb487677a6",
+  "tasks/grok-clamp-001/state.json": "db62ce726f8f942f8c8a10fc555447523950b2b915e713989014ed4c3a5695c5"
 }
