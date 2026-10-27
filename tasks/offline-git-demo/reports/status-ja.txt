@@ -1,5 +1,5 @@
-ダミー検証: WAIT_REVIEW
+ダミー検証: PASS
 修正回数: 0/3
 ソース内容SHA256: a2bfa4d585b0b43cbdae092238d24914bea9f8dccb2206b5fb2843f222e94677
-テスト: None
+テスト: {'passed': True, 'count': 1}
 実際のAIレビュー・実PR操作なし。Git永続化のみ。

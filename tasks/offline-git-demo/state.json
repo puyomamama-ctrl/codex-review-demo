@@ -3,7 +3,13 @@
   "pr": 4,
   "sha": "a2bfa4d585b0b43cbdae092238d24914bea9f8dccb2206b5fb2843f222e94677",
   "round": 0,
-  "status": "WAIT_REVIEW",
-  "seen": [],
-  "tests": null
+  "status": "PASS",
+  "seen": [
+    "c685cfb34daeb78d4e5e933338706bcb83654e1c32239d5e856909dbf2dd1598"
+  ],
+  "tests": {
+    "passed": true,
+    "count": 1
+  },
+  "reason": "独立レビューとテスト成功"
 }
