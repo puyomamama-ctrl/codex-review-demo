@@ -3,11 +3,14 @@
   "pr": null,
   "sha": "17b40765d95e69c9a8cf08bd75fba2e0b6b62048",
   "round": 0,
-  "status": "WAIT_REVIEW",
-  "seen": [],
+  "status": "PASS",
+  "seen": [
+    "b05ffb3eaf2820af4e9bbaf92caf8f29c1ebdbca3851d3d1b25a7eb2ad5e4120"
+  ],
   "tests": {
     "passed": true,
     "count": 7
   },
-  "source_digest": "5552f2e013c2f7f6a2c15b468a11b29521e37e135d8cdb2c4131a0ace0dc8f3e"
+  "source_digest": "5552f2e013c2f7f6a2c15b468a11b29521e37e135d8cdb2c4131a0ace0dc8f3e",
+  "reason": "独立レビューとテスト成功"
 }
