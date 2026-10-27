@@ -3,14 +3,15 @@
   "pr": null,
   "sha": "2b1236552b5d7647f062ca8aaa3a58faabadb2e2",
   "round": 1,
-  "status": "WAIT_REVIEW",
+  "status": "PASS",
   "seen": [
-    "68815f9167496821ef16a745a971bf39ee40f42be21db77cbeee260c1d5247d7"
+    "68815f9167496821ef16a745a971bf39ee40f42be21db77cbeee260c1d5247d7",
+    "826e3c28654c27fd53c32a42b185ae14afc7974668a9576dbadb204704e1bda2"
   ],
   "tests": {
     "passed": true,
     "count": 5
   },
   "source_digest": "21fa756308c82b7e560c68c3e8195f49cd93311ee0f3d40a0ae93a516e499eb4",
-  "reason": "実際のCodex修正済み。独立再レビュー待ち"
+  "reason": "独立レビューとテスト成功"
 }
