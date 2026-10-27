@@ -1,0 +1,36 @@
+name: Whis one-shot demo review
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: "Model ID confirmed from successful model-list check"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: whis-one-shot-review
+  cancel-in-progress: false
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Review fixed demo file once
+        env:
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+          XAI_MODEL: ${{ inputs.model }}
+        run: python3 scripts/whis_review_once.py
+      - name: Upload review as artifact
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: whis-demo-review
+          path: whis-review.txt
+          retention-days: 1
