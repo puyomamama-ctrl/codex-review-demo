@@ -2,16 +2,14 @@ name: Review handoff unit tests
 on:
   push:
     paths:
-      - 'tests/test_review_handoff.py'
-      - 'tests/test_roundtrip_demo.py'
-      - 'tests/test_review_contract.py'
-      - 'tests/test_review_prompt.py'
-      - '.github/workflows/review-handoff-tests.yml'
+      - 'scripts/**'
+      - 'tests/**'
+      - '.github/workflows/**'
   pull_request:
     paths:
-      - 'tests/test_review_handoff.py'
-      - 'tests/test_roundtrip_demo.py'
-      - '.github/workflows/review-handoff-tests.yml'
+      - 'scripts/**'
+      - 'tests/**'
+      - '.github/workflows/**'
   workflow_dispatch:
 
 permissions:
