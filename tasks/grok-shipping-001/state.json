@@ -1,0 +1,13 @@
+{
+  "task_id": "grok-shipping-001",
+  "pr": null,
+  "sha": "2af09f87c42ad492ab9f4916b8c19a4cf465f3d0",
+  "round": 0,
+  "status": "WAIT_REVIEW",
+  "seen": [],
+  "tests": {
+    "passed": true,
+    "count": 4
+  },
+  "source_digest": "ebbaf255d17df358530e9018088482e217ecc0ce3591aa93d7f5b5ed9c3e493c"
+}
