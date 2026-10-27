@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 3
     steps:
-      - name: Check xAI API once (no response body logged)
+      - name: Check xAI API once (sanitized diagnostics only)
         env:
           XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
         shell: bash
@@ -21,9 +21,12 @@ jobs:
             exit 1
           fi
           echo "::add-mask::$XAI_API_KEY"
+          umask 077
+          response_file=$(mktemp)
+          trap 'rm -f "$response_file"' EXIT
           payload='{"model":"grok-4-fast-non-reasoning","messages":[{"role":"user","content":"Reply OK."}],"max_tokens":2,"stream":false}'
           status=$(curl --silent --show-error --max-time 30 --retry 0 \
-            --output /dev/null --write-out '%{http_code}' \
+            --output "$response_file" --write-out '%{http_code}' \
             --header "Authorization: Bearer $XAI_API_KEY" \
             --header "Content-Type: application/json" \
             --data "$payload" \
@@ -31,6 +34,30 @@ jobs:
           if [[ "$status" == "200" ]]; then
             echo "xAI API connectivity: HTTP 200"
           else
-            echo "xAI API connectivity failed (HTTP $status); response suppressed"
+            echo "xAI API connectivity failed (HTTP $status)"
+            python3 - "$response_file" <<'PY'
+          import json
+          import sys
+
+          try:
+              with open(sys.argv[1], encoding="utf-8") as f:
+                  data = json.load(f)
+              error = data.get("error", {})
+              if not isinstance(error, dict):
+                  error = {}
+              raw = " ".join(str(error.get(k, "")) for k in ("code", "type", "message")).lower()
+              categories = [
+                  ("model_unavailable", ("model", "not found", "does not exist")),
+                  ("invalid_request", ("invalid", "parameter", "validation", "max_tokens")),
+                  ("insufficient_credits", ("credit", "balance", "billing", "funds")),
+                  ("permission_denied", ("permission", "access", "forbidden")),
+                  ("rate_limited", ("rate limit", "quota")),
+                  ("authentication", ("authentication", "api key", "unauthorized")),
+              ]
+              category = next((label for label, words in categories if any(word in raw for word in words)), "unclassified")
+              print("Sanitized error category:", category)
+          except (OSError, UnicodeError, ValueError, TypeError):
+              print("Sanitized error category: unreadable_response")
+          PY
             exit 1
           fi
