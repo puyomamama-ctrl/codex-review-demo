@@ -4,6 +4,17 @@ from discount import discounted_price
 
 
 class DiscountTests(unittest.TestCase):
+    def test_zero_discount(self):
+        self.assertEqual(discounted_price(1000, 0), 1000)
+
+    def test_negative_discount_raises(self):
+        with self.assertRaises(ValueError):
+            discounted_price(1000, -1)
+
+    def test_discount_above_one_hundred_raises(self):
+        with self.assertRaises(ValueError):
+            discounted_price(1000, 101)
+
     def test_ten_percent_discount(self):
         self.assertEqual(discounted_price(1000, 10), 900)
 
