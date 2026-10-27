@@ -1,7 +1,8 @@
 {
   "tasks/grok-shipping-001/project/shipping.py": "30c20140435343e32320e1b5bbbd3c823c39fb7d92f9b61d59230fa4b60b83cd",
   "tasks/grok-shipping-001/project/test_shipping.py": "c8a894c8b9a1bfe34d07c1de2333cc640b1258ab6c756d9bba301e3a3e9635c7",
-  "tasks/grok-shipping-001/reports/status-ja.txt": "9ee05f5f8419cdfab00a1c2b1d225387ff4361095aa6b9a089aeb3039630d8d3",
+  "tasks/grok-shipping-001/reports/status-ja.txt": "a55c98157f4f191317337fc2c5c42706b1b489c6cc743cfd7e8bf935f25b580b",
   "tasks/grok-shipping-001/requests/round-0.md": "6fde5ff3260631ec3cbefc4ba093845936aa21378e97d569dab4f5f0d5411903",
-  "tasks/grok-shipping-001/state.json": "79950e7cc3c502ff3a5fa10c001c6ba31a5e5f1b998de9d57af634c60d7c2ae2"
+  "tasks/grok-shipping-001/reviews/round-0.json": "93aa54477e115068a08fe72228880ce8d1029b2b9c2dbd3e8b8d0cc0739d352e",
+  "tasks/grok-shipping-001/state.json": "49607230d645be542212c60b4839383f671cb543e47b4e97d59892d43f1ece0d"
 }

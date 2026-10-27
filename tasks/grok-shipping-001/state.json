@@ -2,12 +2,15 @@
   "task_id": "grok-shipping-001",
   "pr": null,
   "sha": "2af09f87c42ad492ab9f4916b8c19a4cf465f3d0",
-  "round": 0,
-  "status": "WAIT_REVIEW",
-  "seen": [],
+  "round": 1,
+  "status": "WAIT_FIX",
+  "seen": [
+    "68815f9167496821ef16a745a971bf39ee40f42be21db77cbeee260c1d5247d7"
+  ],
   "tests": {
     "passed": true,
     "count": 4
   },
-  "source_digest": "ebbaf255d17df358530e9018088482e217ecc0ce3591aa93d7f5b5ed9c3e493c"
+  "source_digest": "ebbaf255d17df358530e9018088482e217ecc0ce3591aa93d7f5b5ed9c3e493c",
+  "reason": "実際のCodex修正待ち。回数は予約済み"
 }
